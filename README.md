@@ -1,7 +1,7 @@
 # finder.sh
 This script recursively searches for a given string in all files within a specified directory.
 - filesdir – the path to the directory
-- searchstr – the string to search for
+- searchstr – the string to search
 
 # writer.sh
 This script creates a file with a given path and writes a specified string to it.
