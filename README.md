@@ -13,3 +13,5 @@ This init script manages the `aesdsocket` daemon, allowing it to start, stop, or
 - start – launches the daemon in the background with `-d` flag
 - stop – gracefully stops the daemon and removes its PID file
 - restart – stops and then restarts the daemon.
+
+Full working code available at [assignments-3-and-later-vthomas44](https://github.com/cu-ecen-aeld/assignments-3-and-later-vthomas44/tree/main/server)
