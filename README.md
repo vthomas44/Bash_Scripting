@@ -14,4 +14,11 @@ This init script manages the `aesdsocket` daemon, allowing it to start, stop, or
 - stop – gracefully stops the daemon and removes its PID file
 - restart – stops and then restarts the daemon.
 
-Full working code available at [assignments-3-and-later-vthomas44](https://github.com/cu-ecen-aeld/assignments-3-and-later-vthomas44/tree/main/server)
+Full working code available at [assignments-3-and-later-vthomas44/server/](https://github.com/cu-ecen-aeld/assignments-3-and-later-vthomas44/tree/main/server)
+
+# S98lddmodules
+This init script manages loading and unloading of Linux Device Driver (LDD) modules (`scull`, `faulty`, `hello`) and creates/removes their corresponding device nodes.
+- start – loads modules with `modprobe` and creates `/dev` nodes using major numbers from `/proc/devices`
+- stop –  removes device nodes and unloads the modules using `rmmod`
+
+Full working code available at [assignment-5-vthomas44\base_external/rootfs_overlay/etc/init.d/S98lddmodules](https://github.com/cu-ecen-aeld/assignment-5-vthomas44/blob/main/base_external/rootfs_overlay/etc/init.d/S98lddmodules)
