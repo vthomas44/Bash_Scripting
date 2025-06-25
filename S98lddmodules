@@ -1,0 +1,36 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Loading LDD modules"
+    modprobe scull
+    modprobe faulty
+    modprobe hello
+
+    echo "Creating scull device nodes"
+    scull_major=$(grep scull /proc/devices | awk '{print $1}')
+    [ -n "$scull_major" ] && {
+      for i in 0 1 2 3; do
+        mknod /dev/scull$i c $scull_major $i
+      done
+    }
+
+    echo "Creating faulty device node"
+    faulty_major=$(grep faulty /proc/devices | awk '{print $1}')
+    [ -n "$faulty_major" ] && mknod /dev/faulty c $faulty_major 0
+    ;;
+
+  stop)
+    echo "Unloading LDD modules"
+    rm -f /dev/scull* /dev/faulty
+    rmmod hello
+    rmmod faulty
+    rmmod scull
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+
+exit 0
